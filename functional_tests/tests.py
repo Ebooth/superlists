@@ -34,7 +34,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
                 time.sleep(0.5)
 
     def test_can_start_a_list_for_one_user(self):
-        self.browser.get(self.live_server_url + "/lists/")
+        self.browser.get(self.live_server_url + "/")
         self.assertIn("To-Do", self.browser.title)
 
         header_text = self.browser.find_element_by_tag_name("h1").text
@@ -59,7 +59,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
 
-        self.browser.get(self.live_server_url + "/lists/")
+        self.browser.get(self.live_server_url + "/")
 
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy peacock feathers')
@@ -73,7 +73,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
-        self.browser.get(self.live_server_url + "/lists/")
+        self.browser.get(self.live_server_url + "/")
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertNotIn('make a fly', page_text)
@@ -92,7 +92,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
     def test_layout_and_styling(self):
-        self.browser.get(self.live_server_url + "/lists/")
+        self.browser.get(self.live_server_url + "/")
         self.browser.set_window_size(1024, 768)
 
         inputbox = self.browser.find_element_by_id("id_new_item")
