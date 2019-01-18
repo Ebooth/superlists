@@ -25,7 +25,7 @@ SECRET_KEY = 'eygt)k$!m+#$f^*+$vs)i@4grnovc07f!l^-mvn3-9)qj$m@x2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'booth-superlists-staging.tk', 'booth-superlists.tk']
 
 
 # Application definition
