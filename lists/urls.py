@@ -4,5 +4,5 @@ from .views import *
 urlpatterns = [
     path('new', new_list, name="new_list"),
     re_path('(?P<list_id>\d+)/$', view_list, name='view_list'),
-    path('<list_id>/add_item', add_item, name="add_item"),
+    
 ]
