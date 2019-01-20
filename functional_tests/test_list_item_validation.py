@@ -2,7 +2,6 @@ from functional_tests.base import FunctionalTest
 from selenium.webdriver.common.keys import Keys
 from unittest import skip
 
-
 class ItemValidationTest(FunctionalTest):
     def get_error_element(self):
         return self.browser.find_element_by_css_selector(".has-error")
