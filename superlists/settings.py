@@ -140,6 +140,7 @@ LOGGING = {
             'level': 'DEBUG'
         },
     },
+    'root': {'level': 'INFO'},
     
 }
 
