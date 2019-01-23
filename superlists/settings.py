@@ -141,7 +141,7 @@ LOGGING = {
             'formatter' : 'simple'
         },
         'gunicorn': {
-            'class': 'logging.StreamHandler'
+            'class': 'logging.StreamHandler',
             'level': 'DEBUG',
             'formatter' : 'simple'
         }
@@ -153,8 +153,8 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'gunicorn.errors': {
-            'level': 'DEBUG',
             'handlers': ['gunicorn'],
+            'level': 'DEBUG',
         },
     },
     'root': {
