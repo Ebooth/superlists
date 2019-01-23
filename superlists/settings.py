@@ -133,6 +133,11 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'level': 'DEBUG'
         },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.abspath(os.path.join(BASE_DIR, '../debug.log')),
+        },
     },
     'loggers': {
         'django': {
