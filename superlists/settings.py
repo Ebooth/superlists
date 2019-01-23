@@ -25,8 +25,7 @@ SECRET_KEY = 'eygt)k$!m+#$f^*+$vs)i@4grnovc07f!l^-mvn3-9)qj$m@x2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost',
-                 'booth-superlists-staging.tk', 'booth-superlists.tk']
+ALLOWED_HOSTS = ['localhost','booth-superlists-staging.tk', 'booth-superlists.tk']
 
 # Application definition
 
@@ -42,8 +41,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
-AUTHENTICATION_BACKENDS = [
-    'accounts.authentication.PasswordlessAuthenticationBackend']
+AUTHENTICATION_BACKENDS = ['accounts.authentication.PasswordlessAuthenticationBackend']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
