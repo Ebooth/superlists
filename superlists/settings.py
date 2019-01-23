@@ -128,6 +128,11 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
@@ -140,11 +145,8 @@ LOGGING = {
         },
     },
     'loggers': {
+        #catch all logger : replace '' by django to get only django logs
         '': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-        'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
         },
