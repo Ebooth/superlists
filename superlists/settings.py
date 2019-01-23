@@ -137,11 +137,13 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
             'level': 'DEBUG'
+            'filters': ['require_debug_false'],
         },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.abspath(os.path.join(BASE_DIR, '../debug.log')),
+            'filters': ['require_debug_false'],
         },
     },
     'loggers': {
@@ -149,6 +151,7 @@ LOGGING = {
         '': {
             'handlers': ['console'],
             'level': 'DEBUG',
+            'propagate': False
         },
     }
     
