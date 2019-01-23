@@ -140,12 +140,21 @@ LOGGING = {
             'level': 'DEBUG',
             'formatter' : 'simple'
         },
+        'gunicorn': {
+            'class': 'logging.StreamHandler'
+            'level': 'DEBUG',
+            'formatter' : 'simple'
+        }
     },
     'loggers': {
         #catch all logger : replace '' by django to get only django logs
         'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
+        },
+        'gunicorn.errors': {
+            'level': 'DEBUG',
+            'handlers': ['gunicorn'],
         },
     },
     'root': {
