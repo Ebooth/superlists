@@ -4,7 +4,7 @@ from django.contrib.sessions.backends.db import SessionStore
 from .base import FunctionalTest
 User = get_user_model()
 import time
-from management.commands.create_session import create_pre_authenticated_session
+from .management.commands.create_session import create_pre_authenticated_session
 from .servers_tools import create_session_on_server
 
 class MyListsTest(FunctionalTest):
