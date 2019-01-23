@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import re
 import poplib
 import os
+import time
 
 from .base import FunctionalTest
 
@@ -16,16 +17,17 @@ class LoginTest(FunctionalTest):
     def wait_for_email(self, test_email, subject):
         
         if not self.staging_server:
-            mail = mail.outbox[0] 
+            email = mail.outbox[0] 
             self.assertIn(test_email, email.to) 
             self.assertEqual(email.subject, subject) 
             return email.body
+
         email_id = None
         start = time.time()
-        inbox = poplib.POP3_SSL('pop.mail.gmail.com') 
+        inbox = poplib.POP3_SSL('pop.gmail.com') 
         try:
             inbox.user(test_email) 
-            inbox.pass_(os.environ['GMAIL_PASSWORD'])
+            inbox.pass_(os.environ['EMAIL_PASSWORD'])
             while time.time() - start < 60:
                 # get 10 newest messages
                 count, _ = inbox.stat()
@@ -45,7 +47,7 @@ class LoginTest(FunctionalTest):
 
 
     def test_can_get_an_email_link_to_log_in(self):
-        if self.browser.staging_server:
+        if self.staging_server:
             test_email = 'testingbooth01@gmail.com'
         else:
             test_email = 'edith@example.com'
