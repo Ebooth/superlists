@@ -141,9 +141,10 @@ LOGGING = {
             'formatter' : 'simple'
         },
         'gunicorn': {
-            'class': 'logging.StreamHandler',
+            'class': 'logging.FileHandler',
             'level': 'DEBUG',
-            'formatter' : 'simple'
+            'formatter' : 'simple',
+            'filename': os.path.abspath(os.path.join(BASE_DIR, '../debug.log')),
         }
     },
     'loggers': {
@@ -151,10 +152,12 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
+            'propagate': True,
         },
         'gunicorn.errors': {
             'handlers': ['gunicorn'],
             'level': 'DEBUG',
+            'propagate': True,
         },
     },
     'root': {
