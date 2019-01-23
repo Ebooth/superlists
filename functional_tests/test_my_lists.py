@@ -15,7 +15,7 @@ class MyListsTest(FunctionalTest):
         session[BACKEND_SESSION_KEY] = settings.AUTHENTICATION_BACKENDS[0]
         session.save()
 
-        self.browser.get(self.live_server_url + "/")
+        self.browser.get(self.live_server_url + "/404_no_such_url/")
         self.browser.add_cookie(dict(
             name=settings.SESSION_COOKIE_NAME,
             value=session.session_key,
