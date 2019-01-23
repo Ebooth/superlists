@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -139,30 +140,18 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'level': 'DEBUG',
             'formatter' : 'simple'
+            'stream': sys.stdout
         },
-        'gunicorn': {
-            'class': 'logging.FileHandler',
-            'level': 'DEBUG',
-            'formatter' : 'simple',
-            'filename': os.path.abspath(os.path.join(BASE_DIR, '../debug.log')),
-        }
     },
     'loggers': {
-        #catch all logger : replace '' by django to get only django logs
         'django': {
             'handlers': ['console'],
             'level': 'DEBUG',
-            'propagate': True,
-        },
-        'gunicorn.errors': {
-            'handlers': ['gunicorn'],
-            'level': 'DEBUG',
-            'propagate': True,
         },
     },
     'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
+       
+        'level': 'INFO',
     }
     
 }
