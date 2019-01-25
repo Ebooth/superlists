@@ -33,7 +33,7 @@ class FunctionalTest(StaticLiveServerTestCase):
         super.tearDown()
 
     def _test_has_failed(self):
-        return any(error for (method, error) in self._outcome_errors)
+        return any(error for (method, error) in self._outcome.errors)
 
     def take_screenshot(self):
         filename = self._get_filename() + '.png'
