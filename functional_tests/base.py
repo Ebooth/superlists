@@ -30,7 +30,7 @@ class FunctionalTest(StaticLiveServerTestCase):
                 self.take_screenshot()
                 self.dump_html()
         self.browser.quit()
-        super.tearDown()
+        super().tearDown()
 
     def _test_has_failed(self):
         return any(error for (method, error) in self._outcome.errors)
